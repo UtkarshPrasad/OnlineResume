@@ -140,31 +140,31 @@ projects.display = function() {
 projects.display();
 
 education.display = function() {
-    for (var edu in education.schools) {
+	education.schools.forEach(function(school) {
         $("#educations").append(HTMLschoolStart);
-        var schoolName = HTMLschoolName.replace("%data%", education.schools[edu].name);
-        var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[edu].degree);
+        var schoolName = HTMLschoolName.replace("%data%", school.name);
+        var schoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
         var schoolTitle = schoolName + schoolDegree;
         $(".education-entry:last").append(schoolTitle);
-        var formattedDates = HTMLschoolDates.replace("%data%", education.schools[edu].dates);
+        var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
         $(".education-entry:last").append(formattedDates);
-        var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[edu].majors);
+        var formattedMajor = HTMLschoolMajor.replace("%data%", school.majors);
         $(".education-entry:last").append(formattedMajor);
-        var formattedCity = HTMLschoolLocation.replace("%data%", education.schools[edu].location);
+        var formattedCity = HTMLschoolLocation.replace("%data%", school.location);
         $(".education-entry:last").append(formattedCity);
-    }
+    });
 
-    for (var edu1 in education.onlineCourses) {
+	education.onlineCourses.forEach(function(onlineCourse) {
         $("#onlines").append(HTMLonlineClasses);
-        var onlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[edu1].title);
-        var onlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[edu1].school);
+        var onlineTitle = HTMLonlineTitle.replace("%data%", onlineCourse.title);
+        var onlineSchool = HTMLonlineSchool.replace("%data%", onlineCourse.school);
         var onlineTotal = onlineTitle + onlineSchool;
         $(".online-entry:last").append(onlineTotal);
-        var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[edu1].dates);
+        var onlineDates = HTMLonlineDates.replace("%data%", onlineCourse.dates);
         $(".online-entry:last").append(onlineDates);
-        var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[edu1].url);
+        var formattedUrl = HTMLonlineURL.replace("%data%", onlineCourse.url);
         $(".online-entry:last").append(formattedUrl);
-    }
+    });
 };
 education.display();
 
