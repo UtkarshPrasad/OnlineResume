@@ -65,27 +65,12 @@ var projects = {
         "images": ["images/chart.jpg", "images/chart1.jpg"]
     }]
 };
-
-bio.header = function() {
+bio.display = function() {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     $("#header").append(formattedName);
 
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
     $("#header").append(formattedRole);
-
-    var bioPics = HTMLbioPic.replace("%data%", bio.biopic);
-    $("#imgBiopic").append(bioPics);
-
-    $("#header2").append(HTMLskillsStart);
-
-    var welcomeMess = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-    $("#welMess").append(welcomeMess);
-    bio.skills.forEach(function(skill) {
-        var formattedSkill = HTMLskills.replace("%data%", skill);
-        $("#skills").append(formattedSkill);
-    });
-};
-bio.display = function() {
 
     if (bio.skills.length > 0) {
 
@@ -109,8 +94,18 @@ bio.display = function() {
         $("#topContacts").append(locations);
         $("#footerContacts").append(locations);
     }
+    var bioPics = HTMLbioPic.replace("%data%", bio.biopic);
+    $("#imgBiopic").append(bioPics);
+
+    $("#header2").append(HTMLskillsStart);
+
+    var welcomeMess = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    $("#welMess").append(welcomeMess);
+    bio.skills.forEach(function(skill) {
+        var formattedSkill = HTMLskills.replace("%data%", skill);
+        $("#skills").append(formattedSkill);
+    });
 };
-bio.header();
 bio.display();
 work.display = function() {
     work.jobs.forEach(function(job) {
